@@ -77,8 +77,8 @@ int read_history(info_t *info)
 			return (0);
 		buf = malloc(sizeof(char) * (fsize + 1));
 		if (!buf)
-			return (0)
-				rdlen = read(fd, buf, fsize);
+			return (0);
+		rdlen = read(fd, buf, fsize);
 		buf[fsize] = 0;
 		if (rdlen <= 0)
 			return (free(buf), 0);
@@ -88,14 +88,16 @@ int read_history(info_t *info)
 			{
 				buf[i] = 0;
 				build_history_list(info, buf + last, linecount++);
-				last = i + if (last != i)
-					build_history_list(info, buf + last, linecount++);
-				free(buf);
-				info->histcount = linecount;
-				while (info->histcount-- >= HIST_MAX)
-					delete_node_at_index(&(info->history), 0);
-				renumber_history(info);
-				return (info->histcount);
+				last = i + 1;
+			}
+		if (last != i)
+			build_history_list(info, buf + last, linecount++);
+		free(buf);
+		info->histcount = linecount;
+		while (info->histcount-- >= HIST_MAX)
+			delete_node_at_index(&(info->history), 0);
+		renumber_history(info);
+		return (info->histcount);
 }
 
 /**
@@ -132,7 +134,7 @@ int renumber_history(info_t *info)
 	while (node)
 	{
 		node->num = i++;
-		node = node->next
+		node = node->next;
 	}
 	return (info->histcount = i);
 }

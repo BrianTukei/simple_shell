@@ -105,17 +105,18 @@ char *convert_number(long int num, int base, int flags)
 	{
 		n = -num;
 		sign = '-';
-		array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-		ptr = &buffer[49];
-		*ptr = '\0';
+	}
+	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	ptr = &buffer[49];
+	*ptr = '\0';
 
-		do {
-			*--ptr = array[n % base];
-			n /= base;
-		} while (n != 0);
-		if (sign)
-			*--ptr = sign;
-		return (ptr);
+	do {
+		*--ptr = array[n % base];
+		n /= base;
+	} while (n != 0);
+	if (sign)
+		*--ptr = sign;
+	return (ptr);
 }
 
 /**
