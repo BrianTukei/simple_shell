@@ -124,7 +124,7 @@ char *convert_number(long int num, int base, int flags)
  * @buf: address of the string to modify
  *
  * Return: Always 0;
- */
+*/
 
 void remove_comments(char *buf)
 {
