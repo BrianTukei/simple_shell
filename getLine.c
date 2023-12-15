@@ -58,7 +58,7 @@ ssize_t get_input(info_t *info)
 	char **buf_p = &(info->arg), *p;
 
 	_putchar(BUF_FLUSH);
-	r = input_buf(info, &buf, &len);
+	r = input_buf0(info, &buf, &len);
 	if (r == -1) /* EOF */
 		return (-1);
 	if (len)	/* we have commands left in the chain buffer */
