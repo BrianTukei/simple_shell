@@ -102,9 +102,9 @@ int read_history(info_t *info)
 
 /**
  * build_history_list - adds entry to a history linked list
- * @info: Structure containing potential argument
+ * @info: structure containing potential arguments.
  * @buf: buffer
- * @linecount: the history linecount,histcount
+ * @linecount: the history linecount, histcount
  *
  * Return: Always 0
  */
