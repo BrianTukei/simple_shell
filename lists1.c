@@ -43,16 +43,17 @@ char **list_to_strings(list_t *head)
 		{
 			for (j = 0; j < i; j++)
 				free(strs[j]);
-						free(strs);
-
-						return (NULL);
+			free(strs);
+			return (NULL);
 		}
-						str = _strcpy(str, node->str);
-						strs[i] = str;
-						}
-						strs[i] = NULL;
-						return (strs);
+
+		str = _strcpy(str, node->str);
+		strs[i] = str;
+	}
+	strs[i] = NULL;
+	return (strs);
 }
+
 
 /**
  * print_list - prints all elements of a list_t linked list
@@ -60,7 +61,6 @@ char **list_to_strings(list_t *head)
  *
  * Return: size of list
  */
-
 size_t print_list(const list_t *h)
 {
 	size_t i = 0;
@@ -88,16 +88,16 @@ size_t print_list(const list_t *h)
  */
 list_t *node_starts_with(list_t *node, char *prefix, char c)
 {
-		char *p = NULL;
+	char *p = NULL;
 
-			while (node)
-			{
-				p = starts_with(node->str, prefix);
-				if (p && ((c == -1) || (*p == c)))
-					return (node);
-				node = node->next;
-			}
-			return (NULL);
+	while (node)
+	{
+		p = starts_with(node->str, prefix);
+		if (p && ((c == -1) || (*p == c)))
+			return (node);
+		node = node->next;
+	}
+	return (NULL);
 }
 
 /**
